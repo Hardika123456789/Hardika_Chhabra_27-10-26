@@ -97,7 +97,6 @@ function addToCart(productId) {
     updateCart();
 }
 
-// 3. Change quantity
 function changeQuantity(productId, change) {
     const item = cart.find(item => item.id === productId);
 
@@ -115,7 +114,6 @@ function changeQuantity(productId, change) {
     updateCart();
 }
 
-// 4. Remove product completely
 function removeFromCart(productId) {
     cart = cart.filter(item => item.id !== productId);
 
@@ -195,7 +193,6 @@ function updateCart() {
     checkoutTotal.textContent = formatPrice(total);
 }
 
-// 7. Apply coupon
 document.getElementById("apply-coupon").addEventListener("click", () => {
     const code = couponInput.value.trim().toUpperCase();
 
@@ -216,11 +213,9 @@ document.getElementById("apply-coupon").addEventListener("click", () => {
     updateCart();
 });
 
-// 8. Filter and sort events
 categoryFilter.addEventListener("change", displayProducts);
 sortFilter.addEventListener("change", displayProducts);
 
-// 9. Show checkout form
 document.getElementById("checkout-btn").addEventListener("click", () => {
     if (cart.length === 0) {
         alert("Your cart is empty. Please add a product first.");
@@ -236,7 +231,6 @@ document.getElementById("checkout-btn").addEventListener("click", () => {
     });
 });
 
-// 10. Place order
 document.getElementById("checkout-form").addEventListener("submit", event => {
     event.preventDefault();
 
